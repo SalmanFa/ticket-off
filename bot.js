@@ -2,7 +2,9 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = "#";
 
-
+client.on('ready', () => {
+	console.log('Ticket Bot is ready...'); 
+  });
 
 
 client.on("message", (message) => {
