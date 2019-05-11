@@ -127,7 +127,6 @@ if (message.content.startsWith(prefix + "uptime")) {
  client.on("message", message => {
 
   if (message.content === prefix + 'help') {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**يجب أن تمتلك صلاحيات `ADMINISTRATOR` لرؤية أوامر البوت**' );
 message.author.send(`** أوامر بوت التذاكر :-
 ${prefix}تذكرة = لفتح تذكرة جديدة
 ${prefix}اغلاق = لإغلاق التذكرة
