@@ -16,11 +16,16 @@ client.on("message", (message) => {
         message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
             let role = message.guild.roles.find("name", "Trial Support.");
             let role2 = message.guild.roles.find("name", "@everyone");
+	    let role3 = message.guild.roles.find("name", "Helper.");
             c.overwritePermissions(role, {
                 SEND_MESSAGES: true,
                 READ_MESSAGES: true
             });  
             c.overwritePermissions(role2, {
+                SEND_MESSAGES: false,
+                READ_MESSAGES: false
+            });
+	    c.overwritePermissions(role3, {
                 SEND_MESSAGES: false,
                 READ_MESSAGES: false
             });
