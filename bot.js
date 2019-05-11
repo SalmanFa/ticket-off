@@ -17,6 +17,7 @@ client.on("message", (message) => {
             let role = message.guild.roles.find("name", "Trial Support.");
             let role2 = message.guild.roles.find("name", "@everyone");
 	    let role3 = message.guild.roles.find("name", "Helper.");
+	    let role4 = message.guild.roles.find("name", "TI01");
             c.overwritePermissions(role, {
                 SEND_MESSAGES: true,
                 READ_MESSAGES: true
@@ -26,8 +27,12 @@ client.on("message", (message) => {
                 READ_MESSAGES: false
             });
 	    c.overwritePermissions(role3, {
-                SEND_MESSAGES: false,
-                READ_MESSAGES: false
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });
+	    c.overwritePermissions(role4, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
             });
             c.overwritePermissions(message.author, {
                 SEND_MESSAGES: true,
