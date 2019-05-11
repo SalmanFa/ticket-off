@@ -7,7 +7,7 @@ var prefix = "#";
 
 client.on("message", (message) => {
  
-   if (message.content.startsWith(prefix + 'تذكرة')) {  
+   if (message.content.startsWith(prefix + 'تذكرة') || message.content.startsWith(prefix + 'تذكره'))  {  
         const reason = message.content.split(" ").slice(1).join(" ");  
         
         if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
@@ -37,37 +37,7 @@ client.on("message", (message) => {
         }).catch(console.error);
     }
  
- client.on("message", (message) => {
  
-   if (message.content.startsWith(prefix + 'تذكره')) {  
-        const reason = message.content.split(" ").slice(1).join(" ");  
-        
-        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
-        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
-            let role = message.guild.roles.find("name", "Support");
-            let role2 = message.guild.roles.find("name", "@everyone");
-            c.overwritePermissions(role, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });  
-            c.overwritePermissions(role2, {
-                SEND_MESSAGES: false,
-                READ_MESSAGES: false
-            });
-            c.overwritePermissions(message.author, {
-                SEND_MESSAGES: true,
-                READ_MESSAGES: true
-            });
-            message.channel.send(`:white_check_mark: تم انشاء تذكرتك بنجاح, #${c.name}.`);
-            const embed = new Discord.RichEmbed()
-                .setColor(0xCF40FA)
-                .addField(`Hey ${message.author.username}!`, `:white_check_mark:  تم إنشاء التذكرة بنجاح , الرجاء كتابة طلبك وسيتم الرد عليك من الدعم الفني بأسرع وقت ممكن , لإغلاق التذكرة اكتب ${prefix}اغلاق`)
-                .setTimestamp();
-            c.send({
-                embed: embed
-            });
-        }).catch(console.error);
-    }
  
  
   if (message.content.startsWith(prefix + 'اغلاق')) {
